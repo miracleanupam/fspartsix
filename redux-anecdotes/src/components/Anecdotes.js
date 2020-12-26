@@ -28,7 +28,12 @@ const Anecdote = ({ anecdote }) => {
 }
 
 const Anecdotes = () => {
-    const appState = useSelector(state => state)
+    const appState = useSelector(state => {
+      if (state.filter && state.filter !== '') {
+        return {...state, anecdotes: state.anecdotes.filter(a => a.content.includes(state.filter))}
+      }
+      return state
+    })
 
     return (
       <div>
