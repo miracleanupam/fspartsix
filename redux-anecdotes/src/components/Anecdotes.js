@@ -24,7 +24,7 @@ const Anecdote = ({ anecdote }) => {
 }
 
 const Anecdotes = () => {
-    const anecdotes = useSelector(state => state)
+    const anecdotes = useSelector(state => state.anecdotes)
 
     return (
         anecdotes.map(anecdote =>
